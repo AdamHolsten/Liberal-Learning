@@ -1,0 +1,28 @@
+
+Liberal Learning site 
+
+Deleting everything 
+
+Filters     
+    - keyword search 
+    - course description 
+    -civic responcibilites 
+    -semesters
+    -site
+    - not linking to anything 
+    -remove class data
+    - what are 
+
+course search 
+
+Liberal Learning Courses
+
+Search in wordpress
+
+PAWS doesn't do a 
+
+
+
+
+
+Look into Vue and search and sort
