@@ -135,7 +135,7 @@ $postSemesters = get_field('semester_offered');
           <p><strong>Enrollment Requirement: </strong><?php echo get_field('enrollment_requirements'); ?></p>
          <p><strong>Units: </strong><?php echo get_field('units'); ?></p> 
         </div>
-      <p style="font-size:20px;line-height:30px;" class="course-description"><?php echo get_field('description'); ?></p><p class="read-full">Read the full description</p>
+      <p style="font-size:20px;line-height:30px;" class="course-description"><?php echo get_field('description'); ?></p><p class="read-full">Read the full course description</p>
       </div><!-- End Left Column -->
     <!-- Begin Right Column -->
     <div>
@@ -186,7 +186,8 @@ function closeModal() {
 
 }
 const llClass = document.querySelectorAll('.color-shape');
-  const cardButtons = document.querySelectorAll('.course-description') || document.querySelectorAll('.read-full');
+  const cardButtons = document.querySelectorAll('.course-description');
+  const readButton = document.querySelectorAll('.read-full');
   const modalOuter = document.querySelector('.modal-outer-docuseries');
 const modalInner = document.querySelector('.modal-inner-docuseries');
 const buttonSelect = document.querySelector('.modal-inner-docuseries .close-module-button');
@@ -224,6 +225,7 @@ const buttonSelect = document.querySelector('.modal-inner-docuseries .close-modu
   
   
   cardButtons.forEach((button) => button.addEventListener('click', handleCardButtonClick));
+  readButton.forEach((button) => button.addEventListener('click', handleCardButtonClick));
 
   modalOuter.addEventListener('click', (event) => {
   const isOutside = !event.target.closest('.modal-inner-docuseries');
@@ -267,7 +269,11 @@ window.addEventListener('keydown', (event) => {
     overflow: hidden;
     -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
-}}
+    cursor: pointer;
+}
+.read-full{cursor: pointer;color: #4a85b9;}
+.read-full:hover{text-decoration: underline;}
+
   .course-description::after{
     content:'...<br/>Read full course description.';
   }
