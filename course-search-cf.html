@@ -3,8 +3,7 @@
 <?php
 //setup key variables
 $responsibilities = get_field('civic_responsibility', 1718);
-$domains = get_field('domains', 1718);
-$semesters = get_field('semester_offered', 1718);
+$semesters = get_field('semesters', 1718);
 
 ?>
 <!-- Begin Search -->
@@ -20,14 +19,20 @@ $semesters = get_field('semester_offered', 1718);
   <div class="ui-group">
     <h3 style="font-size:21px;line-height:30px;font-family:'Bitter',sans-serif;color:#3e3e3e;font-weight:400;margin-top:0px;margin-bottom:5px;text-transform:none;text-align:left;margin-left:0;">Domain</h3>
     <select class="button-group js-radio-button-group" value-group="color">
-      <option class="button is-checked" value="">none</option>
+      <option class="button is-checked" value="">any</option>
       <!--       <input checked class="button is-checked" value="" type="checkbox" id="any" name="vehicle1" value="Bike">
 <label for="any"> I have a bike</label><br> -->
 <?php
-  
-foreach ((array) $domains as $domain) {	
-  echo '<option class="button" value=".' . str_replace(array(' ', ',', '&','.'), '-', strtolower($domain)) . '">' . $domain . '</option>';
-  }
+
+
+$rows = get_field('domains', 1718);
+if( $rows ) {
+    foreach( $rows as $row ) {
+        $image = $row['individual_domain'];
+  echo '<option class="button" value=".' . str_replace(array(' ', ',', '&','.'), '-', strtolower($image)) . '">' . $image . '</option>';
+
+    }
+}
 ?>
 
 
@@ -37,13 +42,19 @@ foreach ((array) $domains as $domain) {
   <div class="ui-group">
     <h3 style="font-size:21px;line-height:30px;font-family:'Bitter',sans-serif;color:#3e3e3e;font-weight:400;margin-top:0px;margin-bottom:5px;text-transform:none;text-align:left;margin-left:0;">Civic Responsibility</h3>
     <select class="button-group js-radio-button-group" value-group="size">
-      <option class="button is-checked" value="">none</option>
-      <?php
-  
-        foreach ((array) $responsibilities as $responsibility) {	
-          echo '<option class="button" value=".' . str_replace(array(' ', ',', '&','.'), '-', strtolower($responsibility)) . '">' . $responsibility . '</option>';
-          }
-        ?>
+      <option class="button is-checked" value="">any</option>
+<?php
+
+
+$rows = get_field('civic_responsibility', 1718);
+if( $rows ) {
+    foreach( $rows as $row ) {
+        $image = $row['individual_responsibility'];
+  echo '<option class="button" value=".' . str_replace(array(' ', ',', '&','.'), '-', strtolower($image)) . '">' . $image . '</option>';
+
+    }
+}
+?>
       
       
 
@@ -60,6 +71,16 @@ foreach ((array) $domains as $domain) {
         echo '<option class="button" value=".' . str_replace(array(' ', ',', '&','.'), '-', strtolower($semester)) . '">' . $semester . '</option>';
         }
       ?>
+    </select>
+  </div>
+  <br/>
+    <div class="ui-group writing-intensive">
+    <h3 style="font-size:21px;line-height:30px;font-family:'Bitter',sans-serif;color:#3e3e3e;font-weight:400;margin-top:0px;margin-bottom:5px;text-transform:none;text-align:left;margin-left:0;">Writing Intensive </h3>
+    <select class="button-group js-radio-button-group" value-group="shape">
+      <option class="button is-checked" value=""></option>
+      <option class="button is-checked" value=".writing-intensive">Yes</option>
+      <option class="button is-checked" value=".no">No</option>
+
     </select>
   </div>
 </div><!-- End Filters -->
@@ -89,48 +110,51 @@ query_posts(array(
 
 $postResponsibilities = get_field('civic_responsibility'); 
 $postDomains = get_field('domains');
-$postSemesters = get_field('semester_offered');
+$postSemesters = get_field('semesters');
 ?>
 
 <p></p>
   <div class="color-shape <?php 
 
-  if($postResponsibilities) {
-  foreach ((array) $postResponsibilities as $postResponsibility) {	
-  echo str_replace(array(' ', '.'), '-', strtolower($postResponsibility)) . ' ';
+
+$rows = get_field('domains');
+if( $rows ) {
+    foreach( $rows as $row ) {
+        $image = $row['individual_domain'];
+                        echo str_replace(array(' ', ',', '&','.'), '-', strtolower($image)) . ' ';
+
+    }
+}
+
+
+$rows = get_field('civic_responsibility');
+if( $rows ) {
+    foreach( $rows as $row ) {
+        $image = $row['individual_responsibility'];
+                        echo str_replace(array(' ', ',', '&','.'), '-', strtolower($image)) . ' ';
+
+    }
+}
+
+
+  
+
+
+  if($postSemesters) {
+  foreach ((array) $postSemesters as $postSemester) {	
+  echo str_replace(array(' ', ',', '&','.'), '-', strtolower($postSemester)) . ' ';
   }
   
   
    };
-  
-   if($postDomains) {
-    foreach ((array) $postDomains as $postDomain) {	
-    echo str_replace(array(' ', '.'), '-', strtolower($postDomain)) . ' ';
-    }
-    
-    
-     };
-  
-     if($postSemesters) {
-      foreach ((array) $postSemesters as $postSemester) {	
-      echo str_replace(array(' ', '.'), '-', strtolower($postSemester)) . ' ';
-      }
-      
-      
-       };
+   echo get_field('writing_intensive')
   ?>">
 
     <h3 style="font-size:23px;line-height:35px;font-family:'Domine',serif;color:#3e3e3e;font-weight:700;margin-top:0px;margin-bottom:25px;text-transform:none;text-align:left;"><?php echo get_the_title( $post_id ); ?></h3>
       <!-- Begin Left Column -->
     <div>
       <div class="sub">
-          <p><strong>Scheduled: </strong><?php if($postSemesters) {
-            foreach ((array) $postSemesters as $postSemester) {	
-            echo $postSemester . ', ';
-            }
-            
-            
-             };
+          <p><strong>Scheduled: </strong><?php echo get_field('semester_offered')
         ?></p>
           <p><strong>Enrollment Requirement: </strong><?php echo get_field('enrollment_requirements'); ?></p>
          <p><strong>Units: </strong><?php echo get_field('units'); ?></p> 
@@ -140,29 +164,36 @@ $postSemesters = get_field('semester_offered');
     <!-- Begin Right Column -->
     <div>
       <div class="sub">
-       <p><strong>Domain:</strong> 
-        <?php
-        if($postDomains) {
-          foreach ((array) $postDomains as $postDomain) {	
-          echo $postDomain . ', ';
-          }
-          
-          
-           };
-        
+       <p><strong>Domain: </strong>
+
+<?php 
+$rows = get_field('domains');
+if( $rows ) {
+    foreach( $rows as $row ) {
+        $image = $row['individual_domain'];
+                        echo '<span class="domain comma">' . $image . '</span>';
+
+    }
+
+}
+
+
         ?>
       </p>
-      <p><strong>Civic Responsibility: </strong><?php 
+      <p><strong>Civic Responsibility: </strong>
 
-        if($postResponsibilities) {
-        foreach ((array) $postResponsibilities as $postResponsibility) {	
-        echo $postResponsibility . ', ';
-        }
-        
-        
-         };
-        
-        
+<?php 
+$rows = get_field('civic_responsibility');
+if( $rows ) {
+    foreach( $rows as $row ) {
+        $image = $row['individual_responsibility'];
+                        echo '<span class="responsibility comma">' . $image . '</span>';
+
+    }
+
+}
+
+
         ?></p>
       <div style="border-top:1px dashed #767676; width:85%;margin:25px 10px;padding:20px 0">
       <p style="line-height:26px"><i class="fas fa-info-circle"></i> <em>A single course can satisfy <strong>only one</strong> domain but <strong>up to two</strong> civic responsibilities.</em></p> 
@@ -260,6 +291,11 @@ window.addEventListener('keydown', (event) => {
   </script>
   
   <style>
+    .writing-intensive{margin-top: 15px;}
+.comma:not(:empty) ~ .comma:not(:empty):before {
+  content: ", ";
+}
+
    /* .course-description{font-size: 20px;
   line-height: 30px;
   max-height: 300px;
@@ -274,9 +310,9 @@ window.addEventListener('keydown', (event) => {
 .read-full{cursor: pointer;color: #4a85b9;}
 .read-full:hover{text-decoration: underline;}
 
-  .course-description::after{
+  /* .course-description::after{
     content:'...<br/>Read full course description.';
-  }
+  } */
   
   /* 
   .course-description.expanded-description{  transition: max-height 1s ease-in-out;
