@@ -12,206 +12,190 @@ $semesters = get_field('semesters', 1718);
    <input class="search_tabs search-expand" id="myInput-lions-search-grid" data-type="search" type="text" placeholder="Search.." onclick="expandSearch()">
    <img src="https://engineering.tcnj.edu/wp-content/uploads/sites/194/2021/02/headway-imported-image.png" id="clear-filter" alt="close"/>
 </form>
-
 <!-- Begin Filters -->
 <div class="filters" style="margin-top:25px;margin-bottom:75px">
-  
-  <div class="ui-group">
-    <h3 style="font-size:21px;line-height:30px;font-family:'Bitter',sans-serif;color:#3e3e3e;font-weight:400;margin-top:0px;margin-bottom:5px;text-transform:none;text-align:left;margin-left:0;">Domain</h3>
-    <select class="button-group js-radio-button-group" value-group="color">
-      <option class="button is-checked" value="">any</option>
-      <!--       <input checked class="button is-checked" value="" type="checkbox" id="any" name="vehicle1" value="Bike">
-<label for="any"> I have a bike</label><br> -->
-<?php
-
-
-$rows = get_field('domains', 1718);
-if( $rows ) {
-    foreach( $rows as $row ) {
-        $image = $row['individual_domain'];
-  echo '<option class="button" value=".' . str_replace(array(' ', ',', '&','.'), '-', strtolower($image)) . '">' . $image . '</option>';
-
-    }
-}
-?>
-
-
-    </select>
-  </div>
-
-  <div class="ui-group">
-    <h3 style="font-size:21px;line-height:30px;font-family:'Bitter',sans-serif;color:#3e3e3e;font-weight:400;margin-top:0px;margin-bottom:5px;text-transform:none;text-align:left;margin-left:0;">Civic Responsibility</h3>
-    <select class="button-group js-radio-button-group" value-group="size">
-      <option class="button is-checked" value="">any</option>
-<?php
-
-
-$rows = get_field('civic_responsibility', 1718);
-if( $rows ) {
-    foreach( $rows as $row ) {
-        $image = $row['individual_responsibility'];
-  echo '<option class="button" value=".' . str_replace(array(' ', ',', '&','.'), '-', strtolower($image)) . '">' . $image . '</option>';
-
-    }
-}
-?>
-      
-      
-
-    </select>
-  </div>
-
-  <div class="ui-group">
-    <h3 style="font-size:21px;line-height:30px;font-family:'Bitter',sans-serif;color:#3e3e3e;font-weight:400;margin-top:0px;margin-bottom:5px;text-transform:none;text-align:left;margin-left:0;">Semester </h3>
-    <select class="button-group js-radio-button-group" value-group="shape">
-      <option class="button is-checked" value="">any</option>
-      <?php
-  
-      foreach ((array) $semesters as $semester) {	
-        echo '<option class="button" value=".' . str_replace(array(' ', ',', '&','.'), '-', strtolower($semester)) . '">' . $semester . '</option>';
-        }
-      ?>
-    </select>
-  </div>
-  <br/>
-    <div class="ui-group writing-intensive">
-    <h3 style="font-size:21px;line-height:30px;font-family:'Bitter',sans-serif;color:#3e3e3e;font-weight:400;margin-top:0px;margin-bottom:5px;text-transform:none;text-align:left;margin-left:0;">Writing Intensive </h3>
-    <select class="button-group js-radio-button-group" value-group="shape">
-      <option class="button is-checked" value=""></option>
-      <option class="button is-checked" value=".writing-intensive">Yes</option>
-      <option class="button is-checked" value=".no">No</option>
-
-    </select>
-  </div>
-</div><!-- End Filters -->
-
+   <div class="ui-group">
+      <h3 style="font-size:21px;line-height:30px;font-family:'Bitter',sans-serif;color:#3e3e3e;font-weight:400;margin-top:0px;margin-bottom:5px;text-transform:none;text-align:left;margin-left:0;">Domain</h3>
+      <select class="button-group js-radio-button-group" value-group="color">
+         <option class="button is-checked" value="">any</option>
+         <!--       <input checked class="button is-checked" value="" type="checkbox" id="any" name="vehicle1" value="Bike">
+            <label for="any"> I have a bike</label><br> -->
+         <?php
+            $rows = get_field('domains', 1718);
+            if( $rows ) {
+                foreach( $rows as $row ) {
+                    $image = $row['individual_domain'];
+              echo '<option class="button" value=".' . str_replace(array(' ', ',', '&','.'), '-', strtolower($image)) . '">' . $image . '</option>';
+            
+                }
+            }
+            ?>
+      </select>
+   </div>
+   <div class="ui-group">
+      <h3 style="font-size:21px;line-height:30px;font-family:'Bitter',sans-serif;color:#3e3e3e;font-weight:400;margin-top:0px;margin-bottom:5px;text-transform:none;text-align:left;margin-left:0;">Civic Responsibility</h3>
+      <select class="button-group js-radio-button-group" value-group="size">
+         <option class="button is-checked" value="">any</option>
+         <?php
+            $rows = get_field('civic_responsibility', 1718);
+            if( $rows ) {
+                foreach( $rows as $row ) {
+                    $image = $row['individual_responsibility'];
+              echo '<option class="button" value=".' . str_replace(array(' ', ',', '&','.'), '-', strtolower($image)) . '">' . $image . '</option>';
+            
+                }
+            }
+            ?>
+      </select>
+   </div>
+   <div class="ui-group">
+      <h3 style="font-size:21px;line-height:30px;font-family:'Bitter',sans-serif;color:#3e3e3e;font-weight:400;margin-top:0px;margin-bottom:5px;text-transform:none;text-align:left;margin-left:0;">Semester </h3>
+      <select class="button-group js-radio-button-group" value-group="shape">
+         <option class="button is-checked" value="">any</option>
+         <option class="button is-checked" value=".1222">Winter 2022</option>
+         <option class="button is-checked" value=".1224">Spring 2022</option>
+         <!-- <?php
+            foreach ((array) $semesters as $semester) {	
+              echo '<option class="button" value=".' . str_replace(array(' ', ',', '&','.'), '-', strtolower($semester)) . '">' . $semester . '</option>';
+              }
+            ?> -->
+      </select>
+   </div>
+   <br/>
+   <div class="ui-group writing-intensive">
+      <h3 style="font-size:21px;line-height:30px;font-family:'Bitter',sans-serif;color:#3e3e3e;font-weight:400;margin-top:0px;margin-bottom:5px;text-transform:none;text-align:left;margin-left:0;">Writing Intensive </h3>
+      <select class="button-group js-radio-button-group" value-group="shape">
+         <option class="button is-checked" value=""></option>
+         <option class="button is-checked" value=".writing-intensive">Yes</option>
+         <option class="button is-checked" value=".no">No</option>
+      </select>
+      <!-- <p>Displaying:<span id="classes-count"></span> out of <span id="classes-count-final"></span> classes</p> -->
+   </div>
+</div>
+<!-- End Filters -->
 <!-- Begin Grid -->
 <div class="grid">
-<!-- Begin MAT 255 -->
-
-
-<?php 
-query_posts(array( 
-    'post_type' => 'course_post',
-    'orderby' => array( 'meta_value' => 'ASC', 'title' => 'ASC' ),
-
-'order' => 'ASC',
-//exclude the post below from showing up in query
-//'post__not_in' => array(1718), 
-'posts_per_page' => -1, 
-) );  
-?>
-
-
-<!-- Below loops through civic -->
-
-
-<?php while (have_posts()) : the_post(); 
-
-$postResponsibilities = get_field('civic_responsibility'); 
-$postDomains = get_field('domains');
-$postSemesters = get_field('semesters');
-?>
-
-<p></p>
-  <div class="color-shape <?php 
-
-
-$rows = get_field('domains');
-if( $rows ) {
-    foreach( $rows as $row ) {
-        $image = $row['individual_domain'];
-                        echo str_replace(array(' ', ',', '&','.'), '-', strtolower($image)) . ' ';
-
-    }
-}
-
-
-$rows = get_field('civic_responsibility');
-if( $rows ) {
-    foreach( $rows as $row ) {
-        $image = $row['individual_responsibility'];
-                        echo str_replace(array(' ', ',', '&','.'), '-', strtolower($image)) . ' ';
-
-    }
-}
-
-
-  
-
-
-  if($postSemesters) {
-  foreach ((array) $postSemesters as $postSemester) {	
-  echo str_replace(array(' ', ',', '&','.'), '-', strtolower($postSemester)) . ' ';
-  }
-  
-  
-   };
-   echo get_field('writing_intensive')
-  ?>">
-
-    <h3 style="font-size:23px;line-height:35px;font-family:'Domine',serif;color:#3e3e3e;font-weight:700;margin-top:0px;margin-bottom:25px;text-transform:none;text-align:left;"><?php echo get_the_title( $post_id ); ?></h3>
+   <!-- Begin MAT 255 -->
+   <?php 
+      query_posts(array( 
+          'post_type' => 'course_post',
+          'orderby' => array( 'meta_value' => 'ASC', 'title' => 'ASC' ),
+      
+      'order' => 'ASC',
+      //exclude the post below from showing up in query
+      //'post__not_in' => array(1718), 
+      'posts_per_page' => -1, 
+      ) );  
+      ?>
+   <!-- Below loops through civic -->
+   <?php while (have_posts()) : the_post(); 
+      $postResponsibilities = get_field('civic_responsibility'); 
+      $postDomains = get_field('domains');
+      $postSemesters = get_field('semesters');
+      ?>
+   
+   <div class="color-shape <?php 
+      $rows = get_field('domains');
+      if( $rows ) {
+          foreach( $rows as $row ) {
+              $image = $row['individual_domain'];
+                              echo str_replace(array(' ', ',', '&','.'), '-', strtolower($image)) . ' ';
+      
+          }
+      }
+      
+      
+      $rows = get_field('civic_responsibility');
+      if( $rows ) {
+          foreach( $rows as $row ) {
+              $image = $row['individual_responsibility'];
+                              echo str_replace(array(' ', ',', '&','.'), '-', strtolower($image)) . ' ';
+      
+          }
+      }
+      
+      
+        
+      
+      
+        if($postSemesters) {
+        foreach ((array) $postSemesters as $postSemester) {	
+        echo str_replace(array(' ', ',', '&','.'), '-', strtolower($postSemester)) . ' ';
+        }
+        
+        
+         };
+         echo get_field('writing_intensive')
+        ?>">
+      <h3 style="font-size:23px;line-height:35px;font-family:'Domine',serif;color:#3e3e3e;font-weight:700;margin-top:0px;margin-bottom:25px;text-transform:none;text-align:left;"><?php echo get_the_title( $post_id ); ?></h3>
       <!-- Begin Left Column -->
-    <div>
-      <div class="sub">
-          <p><strong>Scheduled: </strong><?php echo get_field('semester_offered')
-        ?></p>
-          <p><strong>Enrollment Requirement: </strong><?php echo get_field('enrollment_requirements'); ?></p>
-         <p><strong>Units: </strong><?php echo get_field('units'); ?></p> 
-        </div>
-      <p style="font-size:20px;line-height:30px;" class="course-description"><?php echo get_field('description'); ?></p><p class="read-full">Read the full course description</p>
-      </div><!-- End Left Column -->
-    <!-- Begin Right Column -->
-    <div>
-      <div class="sub">
-       <p><strong>Domain: </strong>
-
-<?php 
-$rows = get_field('domains');
-if( $rows ) {
-    foreach( $rows as $row ) {
-        $image = $row['individual_domain'];
-                        echo '<span class="domain comma">' . $image . '</span>';
-
-    }
-
-}
-
-
-        ?>
-      </p>
-      <p><strong>Civic Responsibility: </strong>
-
-<?php 
-$rows = get_field('civic_responsibility');
-if( $rows ) {
-    foreach( $rows as $row ) {
-        $image = $row['individual_responsibility'];
-                        echo '<span class="responsibility comma">' . $image . '</span>';
-
-    }
-
-}
-
-
-        ?></p>
-      <div style="border-top:1px dashed #767676; width:85%;margin:25px 10px;padding:20px 0">
-      <p style="line-height:26px"><i class="fas fa-info-circle"></i> <em>A single course can satisfy <strong>only one</strong> domain but <strong>up to two</strong> civic responsibilities.</em></p> 
-      <p style="line-height:26px"><i class="fas fa-info-circle"></i> <em>If two domains or three civic responsibilities are listed, contact <a target="_blank" href="https://recreg.tcnj.edu/">Records and Registration</a> once you have enrolled in the course to indicate which domain or civic responsibilities you wish to have counted.</em></p></div>
-    </div>
-    </div><!-- End Right Column -->
-  </div><!-- End MAT 255 -->
-  <?php endwhile;?>
-</div><!-- Grid -->
-</div><!-- End Search -->
-
-<div class="modal-outer-docuseries">
-  <div class="modal-inner-docuseries">
-  </div>
+      <div>
+         <div class="sub">
+            <p><strong>Scheduled: </strong><?php echo get_field('semester_offered')
+               ?></p>
+            <p><strong>Enrollment Requirement: </strong><?php echo get_field('enrollment_requirements'); ?></p>
+            <p><strong>Units: </strong><?php echo get_field('units'); ?></p>
+         </div>
+         <p style="font-size:20px;line-height:30px;" class="course-description"><?php echo get_field('description'); ?></p>
+         <p class="read-full">Read the full course description</p>
+      </div>
+      <!-- End Left Column -->
+      <!-- Begin Right Column -->
+      <div>
+         <div class="sub">
+            <p><strong>Domain: </strong>
+               <?php 
+                  $rows = get_field('domains');
+                  if( $rows ) {
+                      foreach( $rows as $row ) {
+                          $image = $row['individual_domain'];
+                                          echo '<span class="domain comma">' . $image . '</span>';
+                  
+                      }
+                  
+                  }
+                  
+                  
+                          ?>
+            </p>
+            <p><strong>Civic Responsibility: </strong>
+               <?php 
+                  $rows = get_field('civic_responsibility');
+                  if( $rows ) {
+                      foreach( $rows as $row ) {
+                          $image = $row['individual_responsibility'];
+                                          echo '<span class="responsibility comma">' . $image . '</span>';
+                  
+                      }
+                  
+                  }
+                  
+                  
+                          ?>
+            </p>
+            <p><strong>Writing Intensive: </strong>
+               <?php echo '<span class="writing comma">' . get_field('writing_intensive') . '</span>';
+                  ?>
+            </p>
+            <div style="border-top:1px dashed #767676; width:85%;margin:25px 10px;padding:20px 0">
+               <p style="line-height:26px"><i class="fas fa-info-circle"></i> <em>A single course can satisfy <strong>only one</strong> domain but <strong>up to two</strong> civic responsibilities.</em></p>
+               <p style="line-height:26px"><i class="fas fa-info-circle"></i> <em>If two domains or three civic responsibilities are listed, contact <a target="_blank" href="https://recreg.tcnj.edu/">Records and Registration</a> once you have enrolled in the course to indicate which domain or civic responsibilities you wish to have counted.</em></p>
+            </div>
+         </div>
+      </div>
+      <!-- End Right Column -->
+   </div>
+   <!-- End MAT 255 -->
+   <?php endwhile;?>
 </div>
-
+<!-- Grid -->
+</div>
+<!-- End Search -->
+<div class="modal-outer-docuseries">
+<div class="modal-inner-docuseries">
+</div>
+</div>
 <script>
-
 function closeModal() {
   modalOuter.classList.remove('open');
 
@@ -271,7 +255,6 @@ modalOuter.addEventListener('click', (event) => {
   }
 });
 window.addEventListener('keydown', (event) => {
-  console.log(event);
   if (event.key === 'Escape') {
     closeModal();
   }
@@ -288,163 +271,34 @@ window.addEventListener('keydown', (event) => {
 // });
 
 
-  </script>
-  
-  <style>
-    .writing-intensive{margin-top: 15px;}
-.comma:not(:empty) ~ .comma:not(:empty):before {
-  content: ", ";
+jQuery(document).ready(function ($) {
+$(".writing").each(function() {
+    var text = $(this).text();
+    text = text.replace("no", "No");
+    $(this).text(text);
+});
+$(".writing").each(function() {
+    var textSecondary = $(this).text();
+    textSecondary = textSecondary.replace("writing-intensive", "Yes");
+    $(this).text(textSecondary);
+});
+
+
+});
+
+
+
+// function countAll(){
+// const countClasses = document.querySelector(".grid");
+// let countNumber = countClasses.children.length;
+//   document.getElementById("classes-count").innerHTML = countNumber;
+// }
+
+// countAll();
+</script>
+<!-- <style>
+@media screen and (max-width: 680px) {
+.filters,.filters select,.liberal-search .color-shape, .liberal-search .ui-group{width:100%;}
 }
+</style> -->
 
-   /* .course-description{font-size: 20px;
-  line-height: 30px;
-  max-height: 300px;
-  overflow: hidden;transition: max-height 1s ease-in-out;}  */
-  .course-description{    transition: max-height 1s ease-in-out;
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-line-clamp: 10;
-    -webkit-box-orient: vertical;
-    cursor: pointer;
-}
-.read-full{cursor: pointer;color: #4a85b9;}
-.read-full:hover{text-decoration: underline;}
-
-  /* .course-description::after{
-    content:'...<br/>Read full course description.';
-  } */
-  
-  /* 
-  .course-description.expanded-description{  transition: max-height 1s ease-in-out;
-    overflow: hidden;
-    max-height: 1000px;} */
-    .modal-outer-docuseries {
-  display: -ms-grid;
-  display: grid;
-  background: rgba(0, 0, 0, 0.7);
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  top: 0;
-  left: 0;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  /* Hide this modal until we need it */
-  opacity: 0;
-  pointer-events: none;
-  -webkit-transition: opacity 0.2s;
-  transition: opacity 0.2s;
-}
-
-.modal-outer-docuseries img {
-  width: 100%;
-}
-
-.modal-outer-docuseries.open {
-  opacity: 1;
-  pointer-events: all;
-  z-index: 99999;
-}
-
-.modal-inner-docuseries {
-  max-width: 1000px;
-  min-width: 200px;
-  padding: 2rem;
-  border-radius: 0;
-  min-height: 700px;
-  background: white;
-  -webkit-transform: translateY(-200%);
-  transform: translateY(-200%);
-  -webkit-transition: -webkit-transform .2s;
-  transition: -webkit-transform .2s;
-  transition: transform .2s;
-  transition: transform .2s, -webkit-transform .2s;
-  margin: 20px 20px;
-  max-height: 500px;
-  overflow: auto;
-}
-
-.modal-inner-docuseries .bio {
-  text-align: left;
-  line-height: 1.5rem;
-  font-size: 1rem;
-}
-
-.modal-inner-docuseries p {
-  margin-bottom: 10px;
-  font-size: .85rem;
-}
-
-.modal-inner-docuseries h3 {
-  text-align: left;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.modal-outer-docuseries.open .modal-inner-docuseries {
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
-}
-
-.close-module-button {
-  background: url("https://education.tcnj.edu/wp-content/uploads/sites/206/2020/08/grad-ed-site-home-popup-X-FINAL-081220-30px.png");
-  height: 20px;
-  width: 20px;
-  position: absolute;
-  top: 40px;
-  right: 35px;
-  background-size: 100%;
-  cursor: pointer;
-}
-
-.modal-inner-docuseries .intro-content {
-  width: 100%;
-  margin-top: 0px;
-}
-
-.modal-inner-docuseries .inner-theme {
-  font-family: 'Bitter',
- sans-serif !important;
-  color: #2E2E2E;
-  font-weight: 400;
-  font-size: 20px !important;
-}
-
-.modal-inner-docuseries .inner-theme span {
-  font-family: 'Passion One', 'Open Sans';
-  font-weight: 400;
-  font-size: 21px;
-}
-
-.modal-inner-docuseries hr {
-  margin: 14px 0 26px !important;
-}
-
-.modal-inner-docuseries h3 {
-  font-family: 'Special Elite', 'Open Sans';
-  font-size: 27px;
-  margin-top: 21px;
-  margin-bottom: 17px;
-}
-
-.modal-inner-docuseries .bio p {
-  font-family: 'Open Sans';
-  font-size: 17px;
-  line-height: 25px;
-  color: #000;
-  text-align: left;
-  margin-bottom: 50px;
-  color: #3e3e3e !important;
-  font-family: 'Domine',
- serif !important;
-  font-size: 18px !important;
-  line-height: 40px !important;
-  margin-top: 20px !important;
-}
-
-
-  </style>
