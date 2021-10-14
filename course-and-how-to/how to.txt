@@ -1,0 +1,40 @@
+https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css
+
+
+extract and open in excel
+convert strm (semester) to correct date
+    The term format should be 1 + [last 2 digits of year] + [term number]. Term numbers should be as follows: 2 = Winter, 4 = Spring, 6 = Summer, 8 = Fall.
+
+Duplicate CLASS_ATTRIBUTE_VALUES_DOM
+Split new column CLASS_ATTRIBUTE_VALUES_DOM1 by pipe to CLASS_ATTRIBUTE_VALUES_DOM2
+
+Move secondary natural science with lab to primary 
+
+Save as cvs. convert csv to json 
+https://www.convertcsv.com/csv-to-json.htm
+
+wrap in {
+    data
+}
+
+
+find and replace "CLASS_ATTRIBUTE_VALUES_INT": "Writing Intensive", with
+"CLASS_ATTRIBUTE_VALUES_INT": "Yes",
+
+
+find and replace "CLASS_ATTRIBUTE_VALUES_INT": "", with
+"CLASS_ATTRIBUTE_VALUES_INT": "No",
+
+add ADD_DESCRIPTION column for every item 
+
+Replace blank "CLASS_ATTRIBUTE_VALUES_CIV": "", with
+"CLASS_ATTRIBUTE_VALUES_CIV": "No Civic Responsibility Met",
+
+Replace blank 
+"CLASS_ATTRIBUTE_VALUES_DOM": "",
+&
+"PRIMARY": "",
+"PRIMARY": "No Domain Met",
+
+upload to server
+update json location in js file
