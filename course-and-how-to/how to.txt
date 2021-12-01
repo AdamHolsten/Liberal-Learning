@@ -5,36 +5,58 @@ extract and open in excel
 convert strm (semester) to correct date
     The term format should be 1 + [last 2 digits of year] + [term number]. Term numbers should be as follows: 2 = Winter, 4 = Spring, 6 = Summer, 8 = Fall.
 
+    1222 = Winter 2022
+    1224 = Spring 2022
+    1226 = Summer 2022
+
+Save as cvs. convert csv to json 
+https://www.convertcsv.com/csv-to-json.htm
+
+
+find and replace 
+"CLASS_ATTRIBUTE_VALUES_INT": "Writing Intensive",
+with
+"CLASS_ATTRIBUTE_VALUES_INT": "Yes",
+
+find and replace 
+"CLASS_ATTRIBUTE_VALUES_INT": "",
+with
+"CLASS_ATTRIBUTE_VALUES_INT": "No",
+
+"ENROLL_REQUIREMENTS": "",
+with 
+"ENROLL_REQUIREMENTS": "Not Applicable",
+
+
+add ADD_DESCRIPTION column for every item 
+
+Replace blank 
+"CLASS_ATTRIBUTE_VALUES_CIV": "",
+with
+"CLASS_ATTRIBUTE_VALUES_CIV": "Not Applicable",
+
+Replace blank 
+"CLASS_ATTRIBUTE_VALUES_DOM": "",
+"CLASS_ATTRIBUTE_VALUES_DOM": "Not Applicable",
+
+
+
+        "ajax": "https://assets.codepen.io/3964360/ll-courses-10-6-21.json",
+
+
+
+
+
 Duplicate CLASS_ATTRIBUTE_VALUES_DOM
 Split new column CLASS_ATTRIBUTE_VALUES_DOM1 by pipe to CLASS_ATTRIBUTE_VALUES_DOM2
 
 Move secondary natural science with lab to primary 
 
-Save as cvs. convert csv to json 
-https://www.convertcsv.com/csv-to-json.htm
 
 wrap in {
     data
 }
 
-
-find and replace "CLASS_ATTRIBUTE_VALUES_INT": "Writing Intensive", with
-"CLASS_ATTRIBUTE_VALUES_INT": "Yes",
-
-
-find and replace "CLASS_ATTRIBUTE_VALUES_INT": "", with
-"CLASS_ATTRIBUTE_VALUES_INT": "No",
-
-add ADD_DESCRIPTION column for every item 
-
-Replace blank "CLASS_ATTRIBUTE_VALUES_CIV": "", with
-"CLASS_ATTRIBUTE_VALUES_CIV": "No Civic Responsibility Met",
-
-Replace blank 
-"CLASS_ATTRIBUTE_VALUES_DOM": "",
-&
-"PRIMARY": "",
-"PRIMARY": "No Domain Met",
 
 upload to server
 update json location in js file
