@@ -12,6 +12,7 @@ convert strm (semester) to correct date
 Save as cvs. convert csv to json 
 https://www.convertcsv.com/csv-to-json.htm
 
+In JSON file
 
 find and replace 
 "CLASS_ATTRIBUTE_VALUES_INT": "Writing Intensive",
@@ -22,41 +23,26 @@ find and replace
 "CLASS_ATTRIBUTE_VALUES_INT": "",
 with
 "CLASS_ATTRIBUTE_VALUES_INT": "No",
-
+find and replace 
 "ENROLL_REQUIREMENTS": "",
 with 
 "ENROLL_REQUIREMENTS": "Not Applicable",
 
 
 add ADD_DESCRIPTION column for every item 
+"ADD_DESCRIPTION": "<em><i class=\"fas fa-info-circle\"></i> A single course can satisfy <strong>only one</strong> domain but <strong>up to two</strong> civic responsibilities.<br/><br/><i class=\"fas fa-info-circle\"></i> If two domains or three civic responsibilities are listed, contact <a href=\"https://recreg.tcnj.edu/\" target=\"_blank\">Records and Registration</a> once you have enrolled in the course to indicate which domain or civic responsibilities you wish to have counted.</em>"
 
-Replace blank 
+find and replace 
 "CLASS_ATTRIBUTE_VALUES_CIV": "",
 with
 "CLASS_ATTRIBUTE_VALUES_CIV": "Not Applicable",
 
-Replace blank 
+find and replace 
 "CLASS_ATTRIBUTE_VALUES_DOM": "",
+with
 "CLASS_ATTRIBUTE_VALUES_DOM": "Not Applicable",
 
 
+Previous Course Postings
+"ajax": "https://assets.codepen.io/3964360/ll-courses-10-6-21.json",
 
-        "ajax": "https://assets.codepen.io/3964360/ll-courses-10-6-21.json",
-
-
-
-
-
-Duplicate CLASS_ATTRIBUTE_VALUES_DOM
-Split new column CLASS_ATTRIBUTE_VALUES_DOM1 by pipe to CLASS_ATTRIBUTE_VALUES_DOM2
-
-Move secondary natural science with lab to primary 
-
-
-wrap in {
-    data
-}
-
-
-upload to server
-update json location in js file
